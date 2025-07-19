@@ -15,7 +15,7 @@ module "compute" {
   admin_password      = var.admin_password
   subnet_ids          = module.network.subnet_ids
 }
-#change commit
+
 module "security" {
   source              = "./modules/security"
   location            = var.location
