@@ -1,0 +1,68 @@
+{
+  "name": "techflow-azure-mfa-windows",
+  "version": "1.0.0",
+  "description": "TechFlow Solutions - Azure MFA with Entra ID B2C on Windows App Service",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node server.js",
+    "start:windows": "node server.js",
+    "lint": "next lint",
+    "postinstall": "npm run build",
+    "deploy:dev": "npm run build && npm run deploy:zip:dev",
+    "deploy:test": "npm run build && npm run deploy:zip:test", 
+    "deploy:prod": "npm run build && npm run deploy:zip:prod",
+    "deploy:zip:dev": "powershell -command \"Compress-Archive -Path @('package.json', 'server.js', 'web.config', 'next.config.js', '.next', 'public', 'node_modules') -DestinationPath 'techflow-deploy-dev.zip' -Force\"",
+    "deploy:zip:test": "powershell -command \"Compress-Archive -Path @('package.json', 'server.js', 'web.config', 'next.config.js', '.next', 'public', 'node_modules') -DestinationPath 'techflow-deploy-test.zip' -Force\"",
+    "deploy:zip:prod": "powershell -command \"Compress-Archive -Path @('package.json', 'server.js', 'web.config', 'next.config.js', '.next', 'public', 'node_modules') -DestinationPath 'techflow-deploy-prod.zip' -Force\""
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "next-auth": "^4.24.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "techflow",
+    "azure",
+    "mfa",
+    "b2c",
+    "windows",
+    "app-service",
+    "next.js",
+    "authentication",
+    "entra-id"
+  ],
+  "author": {
+    "name": "TechFlow Solutions",
+    "email": "ra4347534@gmail.com"
+  },
+  "company": "TechFlow Solutions",
+  "contact": "ra4347534@gmail.com",
+  "b2c_tenant": "ra4347534gmail.onmicrosoft.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/techflow-solutions/azure-mfa-windows"
+  },
+  "main": "server.js",
+  "homepage": ".",
+  "config": {
+    "company": "TechFlow Solutions",
+    "platform": "Windows App Service",
+    "azure_tenant": "ra4347534gmail.onmicrosoft.com"
+  }
+}
